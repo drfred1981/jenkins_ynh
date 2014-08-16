@@ -34,7 +34,7 @@
                     "en": "Choose the SCM-Manager administrator (must be an existing YunoHost user)"
                 },
                 "example": "homer"
-            },
+            }
         ]
     }
 }
