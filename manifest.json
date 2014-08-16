@@ -16,14 +16,14 @@
             {
                 "name": "domain",
                 "ask": {
-                    "en": "Choose a domain for SCM-Manager"
+                    "en": "Choose a domain for Jenkins"
                 },
                 "example": "domain.org"
             },
             {
                 "name": "path",
                 "ask": {
-                    "en": "Choose a path for SCM-Manager"
+                    "en": "Choose a path for Jenkins"
                 },
                 "example": "/jenkins",
                 "default": "/jenkins"
@@ -31,7 +31,7 @@
             {
                 "name": "admin",
                 "ask": {
-                    "en": "Choose the SCM-Manager administrator (must be an existing YunoHost user)"
+                    "en": "Choose the Jenkins administrator (must be an existing YunoHost user)"
                 },
                 "example": "homer"
             }

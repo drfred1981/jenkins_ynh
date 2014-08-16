@@ -3,6 +3,23 @@
 # Retrieve arguments
 domain=$1
 path=$2
+user=$3
+# Remove trailing "/" for next commands
+path=${path%/}
+
+# Check user parameter
+sudo yunohost user list --json | grep -q "\"username\": \"$user\""
+if [[ ! $? -eq 0 ]]; then
+    echo "Wrong user"
+    exit 1
+fi
+sudo yunohost app setting webmin admin_user -v $user
+
+# Check domain/path availability
+sudo yunohost app checkurl $domain$path -a jenkins
+if [[ ! $? -eq 0 ]]; then
+    exit 1
+fi
 
 wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
 sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
@@ -32,6 +49,6 @@ sudo service jenkins start
 sudo yunohost service add jenkins --log /var/log/jenkins/jenkins.log
 
 
-sudo yunohost app setting tifred admin_user -v $user
+sudo yunohost app setting jenkins admin_user -v $user
 sudo service nginx reload
 sudo yunohost app ssowatconf
