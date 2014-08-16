@@ -1,0 +1,5 @@
+#!/bin/bash
+sudo apt-get remove --purge jenkins
+sudo rm -r /etc/apt/sources.list.d/jenkins.list
+sudo rm -f /etc/nginx/conf.d/$domain.d/jenkins.conf
+sudo service nginx reload

@@ -32,5 +32,6 @@ sudo service jenkins start
 sudo yunohost service add jenkins --log /var/log/jenkins/jenkins.log
 
 
+sudo yunohost app setting tifred admin_user -v $user
 sudo service nginx reload
 sudo yunohost app ssowatconf
