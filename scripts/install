@@ -9,7 +9,25 @@ sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources
 sudo apt-get update
 sudo apt-get install -y jenkins
 
+# Configure Nginx and reload
+sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
+sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$path.conf
 
+
+data_path=/home/yunohost.app/jenkins
+
+# Copy files to the right place
+
+sudo mkdir -p $data_path
+sudo chown -hR jenkins:jenkins $data_path
+sudo chmod 775 $data_path
+
+
+sudo service jenkins stop
+
+sudo cp ../conf/jenkins.default /etc/default/jenkins
+
+sudo service jenkins start
 
 sudo yunohost service add jenkins --log /var/log/jenkins/jenkins.log
 
