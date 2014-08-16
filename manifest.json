@@ -1,16 +1,16 @@
 {
-    "name": "SCM-Manager",
-    "id": "scm",
+    "name": "Jenkins",
+    "id": "jenkins",
     "description": {
-        "en": "The easiest way to share and manage your Git, Mercurial and Subversion repositories over http",
-        "fr": "La facon la plus simple de gérer ses dépots Git, Mercurial et Subversion par http"
+        "en": "An extendable open source continuous integration server",
+        "fr": "Un serveur d'integration continue open-source"
     },
     "developer": {
         "name": "",
         "email": "",
-        "url": "http://www.scm-manager.org/"
+        "url": "http://jenkins-ci.org/0"
     },
-    "multi_instance": "true",
+    "multi_instance": "false",
     "arguments": {
         "install" : [
             {
@@ -25,8 +25,8 @@
                 "ask": {
                     "en": "Choose a path for SCM-Manager"
                 },
-                "example": "/scmmanager",
-                "default": "/scmmanager"
+                "example": "/jenkins",
+                "default": "/jenkins"
             },
             {
                 "name": "admin",
@@ -35,12 +35,6 @@
                 },
                 "example": "homer"
             },
-            {
-                "name": "admin_passwd",
-                "ask": {
-                    "en": "Choose a password for Wordpress administrator"
-                }
-            }
         ]
     }
 }
